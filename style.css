@@ -1,0 +1,70 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('image.png'); /* Update the path to your image */
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.piano {
+  display: flex;
+}
+
+.key {
+  position: relative;
+  height: calc(var(--width) * 4);
+  width: var(--width);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white; /* Color for key names */
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.white {
+  --width: 100px;
+  color: black;
+  background-color: white;
+  border: 1px solid #333;
+}
+
+.white.active {
+  background-color: #CCC;
+}
+
+.black {
+  --width: 60px;
+  background-color: black;
+  margin-left: calc(var(--width) / -2);
+  margin-right: calc(var(--width) / -2);
+  z-index: 2;
+}
+
+.black.active {
+  background-color: #333;
+}
+
+/* Add styles for key names on black keys */
+.black::before {
+  content: attr(data-note);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+h1 {
+  font-size: 36px;
+  display: block;
+  color: white;
+  margin-bottom: 70px;
+  padding: 20px 0; /* Add some padding to the top and bottom of the header */
+}
